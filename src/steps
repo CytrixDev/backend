@@ -1,0 +1,74 @@
+One Round:
+    - Setup Phase:
+        * Cluster formation
+            Advertisment Phase
+                - Each node decides whether or not to become a CH for the current round.
+                  this decesion is based on the suggested precentage of cluster heads for the network
+                  and the number of times the node has been a CH so far.
+                      
+                        node n chooses a random number from 0 to 1 --> rn
+                        if rn < T(n) then n is CH other wise n is CM
+
+                        T(n) = P/1-P*(r mod 1/P) if n in G else 0
+
+                        P = the desired precentage of cluster heads 
+                        r=  the current round 
+                        G is the set of nodes that have not been a cluster head at some point within 1/P rounds
+                
+                - Each node that has elected itself as CH for current round brodcasts and advertisment message to
+                  the rest of the nodes. For this "CH-Advertisment" phase, the CH use a CSMA MAC protocol and all
+                  CHs transmit their advertisment through the same transmit energy
+                  the non CH nodes must keep their recivers on during this phase of set-up ti hear advertisments of all
+                  CHs.
+
+                - After CH advertisment phase, each non CH node decides the cluster to which
+                  it will belong for this round. This decesion is based on the signal strength of the advertisment.
+                  Assuming symetric propagation channels, the CH advertisment heard with the largest signal strength
+                  is the CH to whom the minimum ammount of transmitted energy is needed for comunication. In the case
+                  of a tie, a random CH is chosen.
+
+
+
+
+            Cluster Setup Phase
+                - After each node has decided to which cluster it belongs, it must inform the cluster-head node that it will
+                  be a member of the cluster. Each node transmits this information back to the CH agaiin using a CSMA MAC protocol,
+                  During this phase, all CH nodes must keep their recivers on.
+
+            Schedule Creation
+                - The CH node recives all the messages for nodes that would like to be included in the cluster. Based on
+                the number of nodes in the cluster, the CH node creates a TDMA schedule telling each node when it can transmit.
+                This schedule is brodcast back to the nodes in the cluster
+            
+
+
+   ( this is one frame )
+    - Steady-state Phase:
+        * CM to CH data exchange
+        * CH to BS data exchange
+        - Once the clusters are created and the TDMA schedule is fixed, data transmition can begin.
+          Assuming nodes always have data to send, they send it during their allocated transmittion
+          time to the CH. THis transmission uses a minimal amount of energy. The radio of each non
+          CH node can be turned off until the node's allocated transmission time, thus minimizing
+          energy dissipation in these nodes. The CH node must keep it's reciver on  to recive all 
+          the data from nodes in the cluster. 
+        
+        - When all data is recived, the CH performs signal processing function to compress the data into
+          a single signal. Then this composite signal is sent to the BS, since the BS is far away, this is
+          a high energy transmission.
+          
+        - After a certian time which is determined 
+            
+            Tcf = 2Nb/rate
+            rate = the bit rate of data transfer
+            N = total number of nodes in the WSN
+            b = bits of message
+            
+        - The next round begins with each node determining if it should be a CH for this round and advertising
+          this information as descriped before.
+
+
+
+
+
+

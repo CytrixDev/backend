@@ -1,8 +1,8 @@
-import cuid from "cuid";
+import random from "./helpers/random";
 
 export default class Frame {
   constructor({ clusters } = {}) {
-    this.id = cuid();
+    this.id = random();
     this.clusters = clusters;
   }
 }

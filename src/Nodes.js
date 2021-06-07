@@ -1,8 +1,8 @@
-import cuid from "cuid";
+import random from "./helpers/random";
 
 export default class Node {
   constructor({ pos, sim_params } = {}) {
-    this.id = cuid();
+    this.id = random();
     this.initial_energy = sim_params.initial_energy;
     this.energy = this.initial_energy;
     this.sim_params = sim_params;
@@ -138,7 +138,7 @@ export class BaseStation {
 
 export class Cluster {
   constructor({ nodes = [], ch = null } = {}) {
-    this.id = cuid();
+    this.id = random();
     this.ch = ch;
     this.nodes = nodes;
   }

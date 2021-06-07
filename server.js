@@ -17,8 +17,6 @@ const app = express();
 app.use(cors());
 
 app.use(bodyParser.json());
-// to start from public folder which points index.html
-app.use(express.static("public"));
 app.use(
   cookieSession({
     maxAge: 1000 * 60 * 3, // 3 minutes

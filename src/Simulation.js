@@ -1,7 +1,6 @@
 import SimulationParameters from "./SimulationParameters";
 import Node from "./Nodes";
 import randPos from "./helpers/randPos";
-import cuid from "cuid";
 import Round from "./Round";
 import { BaseStation } from "./Nodes";
 import Position from "./Position";
@@ -12,7 +11,7 @@ export default class Simulation {
     this.rounds = [];
   }
 
-  initialize() {
+  __init__() {
     this.nodes = [];
     for (let i = 0; i < this.parameters.n; i++) {
       let n_pos = randPos(this.parameters.m);

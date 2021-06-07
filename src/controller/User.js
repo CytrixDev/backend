@@ -3,6 +3,7 @@ const Users = require("../models/User");
 module.exports = {
   // eslint-disable-next-line no-unused-vars
   signUp: async (req, res, next) => {
+    console.log("gel gel hele ")
     const body = req.body;
     const user = new Users({
       username: body.username,

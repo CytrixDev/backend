@@ -1,10 +1,10 @@
-import cuid from "cuid";
+import random from "./helpers/random";
 import { Cluster } from "./Nodes";
 import Frame from "./Frame";
 
 export default class Round {
   constructor({ parameters, r, nodes, bs } = {}) {
-    this.id = cuid();
+    this.id = random();
     this.parameters = parameters;
     this.nodes = nodes.map((node) => node.copy());
     this.r = r;
@@ -48,7 +48,8 @@ export default class Round {
         const ch = node.decideClusterHead();
         node.belongs_to = ch.id;
         const ch_node = this.nodes.filter((n) => n.id == ch.id)[0];
-        ch_node.reciveMessageFromCM({ node });
+        console.log(ch_node)
+        //ch_node.reciveMessageFromCM({ node });
         const current_cluster = clusters.filter(
           (clus) => clus.ch.id == ch_node.id
         )[0];

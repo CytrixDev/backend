@@ -6,7 +6,7 @@
   "scripts": {
     "start": "babel-node index.js ",
     "serve": "nodemon --exec babel-node server.js",
-    "build": "babel index.js -d dist",
+    "build": "babel server.js -d dist",
     "lint": "eslint ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

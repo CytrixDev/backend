@@ -19,7 +19,7 @@ To get a local copy up and running follow these simple example steps.
    ```
    or
    ```sh
-   cd backend && npm install
+   cd backend && npm i
    ``` 
 3. To start the application on development `npm run serve`
 

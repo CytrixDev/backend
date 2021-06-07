@@ -4,13 +4,7 @@ const bodyParser = require("body-parser");
 // eslint-disable-next-line no-unused-vars
 const passportConfig = require("./src/helpers/passport");
 const passport = require("passport");
-const mongoose = require("mongoose");
 const cookieSession = require("cookie-session");
-
-mongoose.connect("mongodb://localhost:27017/wsns", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
 
 const app = express();
 
